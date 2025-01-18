@@ -1,0 +1,85 @@
+.star-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  animation: shoot 1s linear forwards;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.nebula {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1; /* Ensure nebula is behind stars */
+}
+
+.layout {
+  position: absolute;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  z-index: 10; /* Ensure it is above the canvas */
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Full coverage */
+  background: #232323; /* Background color for the canvas */
+  z-index: 0; /* Ensure it is behind the layout */
+}
+
+.navbar {
+    color: white;
+    background-color: blue;
+    padding: 20px;
+    margin: 20px;
+}
+
+main {
+  position: absolute; /* Ensure main is positioned correctly */
+  z-index: 1; /* Ensure main is above the canvas */
+} 

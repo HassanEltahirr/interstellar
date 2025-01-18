@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* Animation Keyframes */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) translateY(200%);
+    opacity: 0;
+  }
+}
+
+/* Bootstrap Theme Overrides */
+.bg-black {
+  background-color: #000 !important;
+}
+
+.text-light-emphasis {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.card {
+  --bs-card-bg: transparent;
+  --bs-card-border-color: rgba(147, 51, 234, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Custom Gradients and Effects */
+.cosmic-bg {
+  background: linear-gradient(to bottom, #000000, #1a1a2e);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.2));
+}
+
+.cosmic-text {
+  background: linear-gradient(120deg, #ff4dff, #4d4dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cosmic-title {
+  background: linear-gradient(120deg, #ff4dff, #4d4dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Card Styles */
+.phenomenon-card {
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(147, 51, 234, 0.15);
+  transition: all 0.3s ease;
+}
+
+.phenomenon-card:hover {
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: 
+    0 1rem 3rem rgba(0, 0, 0, 0.175),
+    0 0 0 1px rgba(147, 51, 234, 0.3);
+}
+
+.cosmic-card-gradient {
+  background: linear-gradient(45deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
+  transition: all 0.3s ease;
+}
+
+/* Star Field Effects */
+.star-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 1s infinite;
+  animation-delay: var(--twinkle-delay);
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: shooting-star 2s linear infinite;
+  animation-delay: var(--shooting-delay);
+}
+
+.nebula {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* Prose Overrides for Content */
+.prose {
+  max-width: 65ch;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: white;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #93c5fd;
+}
+
+/* Utility Classes */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .cosmic-text {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cosmic-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .cosmic-text {
+    font-size: 3rem;
+  }
+}
+
+.phenomenon-title {
+  font-size: 1.875rem; /* Equivalent to text-3xl */
+  color: #a855f7; /* Changed to a semi-neon purple */
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(168, 85, 247, 0.7), 0 0 10px rgba(168, 85, 247, 0.5); /* Added neon glow effect */
+  animation: pulse 1.5s infinite, space-animation 3s infinite; /* Added space animation */
+}
+
+.phenomenon-overview {
+  font-size: 1.5rem; /* Equivalent to text-2xl */
+  color: #d946ef; /* Changed to a semi-neon purple */
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(217, 70, 239, 0.7), 0 0 10px rgba(217, 70, 239, 0.5); /* Added neon glow effect */
+  animation: pulse 1.5s infinite, space-animation 3s infinite; /* Added space animation */
+}
+
+.phenomenon-section-title {
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  color: #8b5cf6; /* Changed to a semi-neon purple */
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.7), 0 0 10px rgba(139, 92, 246, 0.5); /* Added neon glow effect */
+  animation: pulse 1.5s infinite, space-animation 3s infinite; /* Added space animation */
+}
+
+/* Added keyframes for pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Added keyframes for space animation */
+@keyframes space-animation {
+  0% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
